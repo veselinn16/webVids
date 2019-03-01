@@ -8,6 +8,8 @@ axios.defaults.headers.common['Content-Type'] = 'application/json';
 axios.defaults.headers.common['Authorization'] = `Bearer ${'fakeAccessToken'}`;
 
 const api = ({dispatch}) => next => action => {
+    // console.log('fds')
+    // console.log(typeof action);
     next(action);
     if(action.type !== API) return; // ignore all actions that are not of type 'API'
 
