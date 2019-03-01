@@ -8,6 +8,8 @@ import { GlobalStyle } from '../injectGlobalStyles'; // the global styles
 
 import { ThemeProvider } from 'styled-components'; // for making the theme object accessible to all styled components
 import theme from '../constants/theme'; // theme object holding all 'CSS variables'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import App from '../components/App';
 
@@ -21,6 +23,7 @@ const Root = () => {
                     </BrowserRouter>
                     <GlobalStyle/>
                     <DevTools />
+                    <ToastContainer/>
                 </StyledContainer>
             </ThemeProvider>
         </Provider>
