@@ -3,7 +3,8 @@ import { GET_MOVIES } from '../constants/actionTypes';
 
 export default handleActions(
     {
-        [GET_MOVIES]: (state, action) => state // GET_MOVIES has square brackets, because it's a variable
+        [GET_MOVIES]: (state, action) => action.payload // GET_MOVIES has square brackets, because it's a variable
+        // this action sets the movies returned by the network request to be the movies in the Redux store
     },
- {}
+    {}
 ); // first arg - object(action.type -> reducer to handle it); second arg - initial state to return
