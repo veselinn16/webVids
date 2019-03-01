@@ -1,7 +1,8 @@
 const noOp = () => ({ type: 'NO_OP'}); // this is the default function to which onFail and onSuccess are assigned if no action creator is passed to them!
 
-// used for creating a payload object in the createAction() call. This is needed in the api middleware
-export const apiPayloadCreator = () => ({
+// used for creating a payload object in the createAction() call. The properties are needed in the api middleware
+// the first expression passes default parameters to the properties if they are not set later on
+export const apiPayloadCreator = ({
     url = '/',
     method = 'GET',
     onSuccess = noOp,
@@ -17,5 +18,22 @@ export const apiPayloadCreator = () => ({
     data
 });
 
-// const blah = apiPayloadCreator();
-// console.log(blah);
+// export const apiPayloadCreator = () => {
+//     let url = '/',
+//     method = 'GET',
+//     onSuccess = noOp,
+//     onFail = noOp,
+//     label = '',
+//     data = null
+
+//     return function() {
+//         return {
+//             url,
+//             method,
+//             onSuccess,
+//             onFail,
+//             label,
+//             data
+//         }
+//     }
+// }
