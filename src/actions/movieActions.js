@@ -1,6 +1,7 @@
 // import { createAction } from 'redux-actions';
 // import { apiPayloadCreator } from '../utils/appUtils';
 import { API, SET_MOVIES } from '../constants/actionTypes';
+import { GET_MOVIES } from '../constants/label';
 import { normalize, schema } from 'normalizr';
 
 // const getMoviesAC = () => createAction(API); // retruns an action creator function
@@ -22,8 +23,8 @@ export const getMovies = () => {
             method: 'GET',
             onSuccess: setMovies,
             onFail: () => ({ type: 'NO_OP'}),
-            label: '',
-            data: null
+            label: GET_MOVIES,
+            data: null,
         }
     }
 }
