@@ -6,6 +6,9 @@ import StyledHorizontalScroll from './StyledHorizontalScroll';
 import Movie from './Movie';
 import StyledFooter from './StyledFooter';
 import StyledLargeButton from './StyledLargeButton';
+import HelpMenuContainer from '../containers/HelpMenuContainer';
+import StyledLoader from './StyledLoader';
+import { Link } from 'react-router-dom';
 
 class Movies extends Component {
     componentDidMount() {
@@ -15,19 +18,22 @@ class Movies extends Component {
         return(
             <Fragment>
                 <StyledHeader>
-                    <Icon icon="bars" text="help" />
+                    <HelpMenuContainer/>
                     <StyledHeaderTitle>Movie Recommendations</StyledHeaderTitle>
                     <Icon icon="search" />
                 </StyledHeader>
                 <StyledHorizontalScroll>
-                    {this.props.movies.map(movie => (
-                        <Movie
-                            key={movie.id}
-                            poster={movie.poster}
-                            duration={movie.duration}
-                            name={movie.name}
-                            year={movie.year}
-                        />
+                    {this.props.loading ? <StyledLoader /> : this.props.movies.map(movie => (
+                        <Link to={`/movies/${movie.id}`} style={{textDecoration: 'none',
+                            cursor: 'pointer'}} key={movie.id}>
+                            <Movie
+                                key={movie.id}
+                                poster={movie.poster}
+                                duration={movie.duration}
+                                name={movie.name}
+                                year={movie.year}
+                            />
+                        </Link>
                     ))}
                 </StyledHorizontalScroll>
                 <StyledFooter>
