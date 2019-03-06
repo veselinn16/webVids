@@ -1,5 +1,6 @@
 import configureStore from './configureStore';
 
-const store = configureStore(); // sets the store equal to a function, returning a redux store
+// object destructuting
+const {store, persistedStore } = configureStore(); // sets the store equal to a function, returning a redux store
 
-export default store;
+export { persistedStore, store as default }; // persistedStore is a named export, while store is a default one

@@ -3,6 +3,7 @@ import rootReducer from '../reducers/';
 import logger from 'redux-logger';
 import api from '../middleware/api';
 import DevTools from '../containers/DevTools';
+import { persistStore } from 'redux-persist';
 
 const configureStore = initialState => { // if initialState is passed, add it to the store
     const store = createStore(
@@ -19,7 +20,9 @@ const configureStore = initialState => { // if initialState is passed, add it to
             store.replaceReducer(rootReducer);
         })
     }
-    return store;
+
+    const persistedStore = persistStore(store); // use persisted store
+    return { store, persistedStore };
 }
 
 export default configureStore;
