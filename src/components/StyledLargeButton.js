@@ -29,11 +29,14 @@ const StyledLargeButton = styled.button`
         cursor: pointer;
         transform: translateY(2px);
         box-shadow: 10px 55px 150px -20px #2a628f;
+        &:after {
+            transform: scaleY(1);
+            transform-origin: bottom;
+        }
     }
 
     &:active {
         transform: translateY(4px);
-        background: #2a628f;
     }
 
     ${devices.md`
