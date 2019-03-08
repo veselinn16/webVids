@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import movies from './movies';
-import selectMovie from './selectMovie';
+import selectedMovie from './selectedMovie';
 import isLoading from './isLoading';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -8,7 +8,7 @@ import storage from 'redux-persist/lib/storage';
 // root reducer
 const rootReducer = combineReducers({
     movies,
-    selectMovie,
+    selectedMovie,
     isLoading
 });
 
