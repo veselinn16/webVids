@@ -1,2 +1,2 @@
 export const helpMsg =
-  "This is shit - a beautiful app that does blah blah blah ..";
+  "This is WEBVIDS - a beautiful app that puts toast messages on the screen :D";
