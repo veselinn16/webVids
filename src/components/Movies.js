@@ -23,11 +23,13 @@ class Movies extends Component {
                     <Icon icon="search" />
                 </StyledHeader>
                 <StyledHorizontalScroll>
-                    {this.props.loading ? <StyledLoader /> : this.props.movies.map(movie => (
+                    {this.props.loading ? 
+                    <StyledLoader /> 
+                    : 
+                    this.props.movies.map(movie => (
                         <Link to={`/movies/${movie.id}`} style={{textDecoration: 'none',
                             cursor: 'pointer'}} key={movie.id}>
                             <Movie
-                                key={movie.id}
                                 poster={movie.poster}
                                 duration={movie.duration}
                                 name={movie.name}
