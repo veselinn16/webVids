@@ -6,6 +6,9 @@ const StyledHeader = styled.header`
     align-items: center;
     color: #8b9095;
     font-size: .8rem;
+    > * {
+        z-index: 10;
+    }
 `;
 
 export default StyledHeader;
