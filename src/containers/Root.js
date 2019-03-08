@@ -15,23 +15,21 @@ import store, { persistedStore } from '../store';
 
 import App from '../components/App';
 
-const Root = () => {
-    return(
-        <Provider store={store}>
-            <PersistGate persistor={persistedStore} loading={null}>
-                <ThemeProvider theme={theme}>
-                    <StyledContainer>
-                        <BrowserRouter>
-                            <App/>
-                        </BrowserRouter>
-                        <GlobalStyle/>
-                        <DevTools />
-                        <ToastContainer/>
-                    </StyledContainer>
-                </ThemeProvider>
-            </PersistGate>
-        </Provider>
-    )
-}
+const Root = () => (
+    <Provider store={store}>
+        <PersistGate persistor={persistedStore} loading={null}>
+            <ThemeProvider theme={theme}>
+                <StyledContainer>
+                    <BrowserRouter>
+                        <App/>
+                    </BrowserRouter>
+                    <GlobalStyle/>
+                    <DevTools />
+                    <ToastContainer/>
+                </StyledContainer>
+            </ThemeProvider>
+        </PersistGate>
+    </Provider>
+)
 
 export default Root;
