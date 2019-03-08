@@ -1,19 +1,7 @@
-// import { createAction } from 'redux-actions';
-// import { apiPayloadCreator } from '../utils/appUtils';
-import { API, SET_MOVIES } from '../constants/actionTypes';
+import { createAction } from 'redux-actions';
+import { API, SET_MOVIES, SELECT_MOVIE } from '../constants/actionTypes';
 import { GET_MOVIES } from '../constants/label';
 import { normalize, schema } from 'normalizr';
-
-// const getMoviesAC = () => createAction(API); // retruns an action creator function
-//calls the action creator and specifies the required properties of the network request
-// export const getMovies = () => getMoviesAC({
-//     url: '/vcvx0',
-//     method: 'GET',
-//     onSuccess: setMovies,
-//     onFail: () => ({ type: 'NO_OP'}),
-//     label: '',
-//     data: null
-// })
 
 export const getMovies = () => {
     return {
@@ -29,6 +17,7 @@ export const getMovies = () => {
     }
 }
 
+//this function will be called upon a successful data fetch  - movies is the retrieved data.
 function setMovies(movies) {
     // movies is the result from server and it is an array of movie objects
     // normalize the list of movie objects into an object with keys being the movie objects
@@ -36,10 +25,11 @@ function setMovies(movies) {
     const movieListSchema = new schema.Array(movieSchema); // defines that the data from the server is an array
     const normalizedData = normalize(movies, movieListSchema); // normalizes the data
     
-    
     // action that has the normalized data as its payload
     return { 
         type: SET_MOVIES,
         payload: normalizedData.entities.movies
     };
 }
+
+export const selectMovie = createAction(SELECT_MOVIE);
