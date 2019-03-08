@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-const Icon = ({ icon = 'ellipsis-h', text = false }) => ( // if a text prop exists, span will be rendered//
-    <Fragment>
+const Icon = ({ icon = 'ellipsis-h', text = false, onClick }) => ( // if a text prop exists, span will be rendered//
+    <div onClick={onClick}>
         <span className={`fas fa-${icon}`} />
         {Boolean(text) && <span> &nbsp; {text}</span>}
-    </Fragment>
+    </div>
 );
 
 export default Icon;
