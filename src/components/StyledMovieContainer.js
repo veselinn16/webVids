@@ -3,8 +3,10 @@ import { devices } from '../utils/styledUtils'; // media query breakpoints objec
 
 const StyledMovieContainer = styled.section`
     background: ${props => props.theme.secondaryBg};
+    position: relative;
     width: 100%;
     height: 100vh;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     
