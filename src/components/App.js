@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import StyledMovieContainer from './StyledMovieContainer';
 import MoviesContainer from '../containers/MoviesContainer';
-import MovieDetailsContainer from './MovieDetails';
+import MovieDetailsContainer from '../containers/MovieDetailsContainer';
 
 const App = () => (
     <StyledMovieContainer>
